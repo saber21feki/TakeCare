@@ -3,13 +3,25 @@
 
 
 
+    <!-- Layout activity_main -->
+    <string name="title_connexion">Connexion</string>
+    <string name="identifiant_connexion">Identifiant : </string>
+    <string name="motDePasse_connexion">Mot de passe : </string>
+    <!-- End Layout activity_main -->
 
-    <!-- Layout my_account*/ -->
+    <!-- Layout my_account -->
     <string name="title_compte">Mon Compte</string>
     <string name="Nom_compte">Nom : </string>
     <string name="Prenom_compte">Prénom : </string>
     <string name="Tel_compte">Téléphone : </string>
     <string name="Mail_compte">Mail : </string>
-    <string name="Edit_Password_compte">Modifier votre mot de passe</string>
     <!-- End Layout my_account -->
+
+    <!-- Layout edit_password -->
+    <string name="TitleEditPwd">Changer le Mot de Passe</string>
+    <string name="LastPwd">Ancien Mot de Passe : </string>
+    <string name="NewPwd">Nouveau Mot de Passe : </string>
+    <string name="VerifNewPwd">Vérification Mot de Passe : </string>
+    <!-- End Layout edit_password -->
+
 </resources>
