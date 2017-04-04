@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Care Tech</string>
+
+
+
+
+    <!-- Layout my_account*/ -->
+    <string name="title_compte">Mon Compte</string>
+    <string name="Nom_compte">Nom : </string>
+    <string name="Prenom_compte">Prénom : </string>
+    <string name="Tel_compte">Téléphone : </string>
+    <string name="Mail_compte">Mail : </string>
+    <!-- End Layout my_account -->
 </resources>
