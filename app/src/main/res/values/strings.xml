@@ -10,5 +10,6 @@
     <string name="Prenom_compte">Prénom : </string>
     <string name="Tel_compte">Téléphone : </string>
     <string name="Mail_compte">Mail : </string>
+    <string name="Edit_Password_compte">Modifier votre mot de passe</string>
     <!-- End Layout my_account -->
 </resources>
