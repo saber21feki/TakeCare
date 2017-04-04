@@ -15,7 +15,6 @@
     <string name="Prenom_compte">Prénom : </string>
     <string name="Tel_compte">Téléphone : </string>
     <string name="Mail_compte">Mail : </string>
-    <string name="Edit_Password_compte">Modifier votre mot de passe </string>
     <!-- End Layout my_account -->
 
     <!-- Layout edit_password -->
@@ -25,4 +24,18 @@
     <string name="VerifNewPwd">Vérification Mot de Passe : </string>
     <!-- End Layout edit_password -->
 
+    <!-- Layout details_patients -->
+    <string name="FichePatient">Changer le Mot de Passe</string>
+    <string name="NumSecuPatient">Numéro de Sécurité Sociale : </string>
+    <string name="LastNamePatient">Nom du Patient : </string>
+    <string name="FirstNamePatient">Prénom du Patient : </string>
+    <string name="DatePatient">Date de Naissance :</string>
+    <string name="AdressePatient">Adresse Patient :</string>
+    <string name="TelPatient">Téléphone :</string>
+    <string name="EmailPatient">Email :</string>
+    <string name="SexePatient">Sexe Patient :</string>
+    <string name="PoidsPatient">Poids : </string>
+    <string name="TaillePatient">Taille :</string>
+    <string name="GroupeSanguinPatient">Groupe Sanguin :</string>
+    <!-- End Layout details_patients -->
 </resources>
