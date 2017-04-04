@@ -18,219 +18,224 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:text="Numéro de Sécurité Sociale :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/NumSecuPatient"
-        android:layout_marginTop="32dp"
+    <ScrollView
+        android:layout_height="459dp"
+        android:layout_width="352dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/FichePatient"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.16" />
-
-    <TextView
-        android:text="Nom du Patient :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/LastNamePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/NumSecuPatient"
-        app:layout_constraintTop_toBottomOf="@+id/NumSecuPatient"
-        android:layout_marginTop="24dp" />
-
-    <TextView
-        android:text="Prénom du Patient :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/FirstNamePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/LastNamePatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/LastNamePatient" />
-
-    <TextView
-        android:text="Date de Naissance :"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/DatePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/FirstNamePatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/FirstNamePatient" />
-
-    <TextView
-        android:text="Adresse Patient :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/AdressePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/DatePatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/DatePatient" />
-
-    <TextView
-        android:text="Téléphone :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TelPatient"
-        app:layout_constraintLeft_toLeftOf="@+id/AdressePatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/AdressePatient" />
-
-    <TextView
-        android:text="Email :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/EmailPatient"
-        app:layout_constraintLeft_toLeftOf="@+id/TelPatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/TelPatient" />
-
-    <TextView
-        android:text="Sexe Patient :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SexePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/EmailPatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/EmailPatient" />
-
-    <TextView
-        android:text="Poids : "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/PoidsPatient"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/SexePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/SexePatient" />
-
-    <TextView
-        android:text="Taille :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TaillePatient"
-        app:layout_constraintLeft_toLeftOf="@+id/PoidsPatient"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/PoidsPatient" />
-
-    <TextView
-        android:text="Groupe Sanguin :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/GroupeSanguinPatient"
-        app:layout_constraintLeft_toLeftOf="@+id/TaillePatient"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/TaillePatient" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/NumSecuPatientText"
-        android:text="NumSecu"
         android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/NumSecuPatient"
-        app:layout_constraintTop_toTopOf="@+id/NumSecuPatient" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp">
 
-    <TextView
-        android:text="Nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/LastNamePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/LastNamePatient"
-        app:layout_constraintTop_toTopOf="@+id/LastNamePatient" />
-
-    <TextView
-        android:text="Prenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/FirstNamePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/FirstNamePatient"
-        app:layout_constraintTop_toTopOf="@+id/FirstNamePatient" />
-
-    <TextView
-        android:text="13/09/1996"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/DatePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/DatePatient"
-        app:layout_constraintTop_toTopOf="@+id/DatePatient" />
-
-    <TextView
-        android:text="45 rue de l'ignorance 34000 Montpellier"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
-        android:id="@+id/AdressePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/AdressePatient"
-        app:layout_constraintTop_toTopOf="@+id/AdressePatient" />
-
-    <TextView
-        android:text="Telephone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TelPatientText"
-        android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/TelPatient"
-        app:layout_constraintTop_toTopOf="@+id/TelPatient" />
-
-    <TextView
-        android:text="Email@CareTech.com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/EmailPatientText"
-        app:layout_constraintLeft_toRightOf="@+id/EmailPatient"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@+id/EmailPatient" />
-
-    <TextView
-        android:text="Homme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SexePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/SexePatient"
-        app:layout_constraintTop_toTopOf="@+id/SexePatient" />
-
-    <TextView
-        android:text="60 kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/PoidsPatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/PoidsPatient"
-        app:layout_constraintTop_toTopOf="@+id/PoidsPatient" />
-
-    <TextView
-        android:text="160 cm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TaillePatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/TaillePatient"
-        app:layout_constraintTop_toTopOf="@+id/TaillePatient" />
-
-    <TextView
-        android:text="O+"
-        android:layout_width="173dp"
-        android:layout_height="28dp"
-        android:id="@+id/GroupeSanguinPatientText"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/GroupeSanguinPatient"
-        app:layout_constraintTop_toTopOf="@+id/GroupeSanguinPatient" />
-
-    <ScrollView
-        android:layout_width="28dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="4dp"
-        android:scrollbarStyle="insideOverlay">
-
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Poids : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/PoidsPatient"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/SexePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/SexePatient" />
+
+            <TextView
+                android:text="60 kg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/PoidsPatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/PoidsPatient"
+                app:layout_constraintTop_toTopOf="@+id/PoidsPatient" />
+
+            <TextView
+                android:text="Homme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SexePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/SexePatient"
+                app:layout_constraintTop_toTopOf="@+id/SexePatient" />
+
+            <TextView
+                android:text="160 cm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TaillePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/TaillePatient"
+                app:layout_constraintTop_toTopOf="@+id/TaillePatient" />
+
+            <TextView
+                android:text="Taille :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TaillePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/PoidsPatient"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/PoidsPatient" />
+
+            <TextView
+                android:text="13/09/1996"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DatePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/DatePatient"
+                app:layout_constraintTop_toTopOf="@+id/DatePatient" />
+
+            <TextView
+                android:text="Date de Naissance :"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/DatePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/FirstNamePatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/FirstNamePatient" />
+
+            <TextView
+                android:text="Nom du Patient :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LastNamePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/NumSecuPatient"
+                app:layout_constraintTop_toBottomOf="@+id/NumSecuPatient"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:text="O+"
+                android:layout_width="173dp"
+                android:layout_height="28dp"
+                android:id="@+id/GroupeSanguinPatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/GroupeSanguinPatient"
+                app:layout_constraintTop_toTopOf="@+id/GroupeSanguinPatient" />
+
+            <TextView
+                android:text="Nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LastNamePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/LastNamePatient"
+                app:layout_constraintTop_toTopOf="@+id/LastNamePatient" />
+
+            <TextView
+                android:text="45 rue de l'ignorance 34000 Montpellier"
+                android:layout_width="191dp"
+                android:layout_height="34dp"
+                android:id="@+id/AdressePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/AdressePatient"
+                app:layout_constraintTop_toTopOf="@+id/AdressePatient" />
+
+            <TextView
+                android:text="Numéro de Sécurité Sociale :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NumSecuPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NumSecuPatientText"
+                android:text="NumSecu"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/NumSecuPatient"
+                app:layout_constraintTop_toTopOf="@+id/NumSecuPatient" />
+
+            <TextView
+                android:text="Sexe Patient :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SexePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/EmailPatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/EmailPatient" />
+
+            <TextView
+                android:text="Email@CareTech.com"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/EmailPatientText"
+                app:layout_constraintLeft_toRightOf="@+id/EmailPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toTopOf="@+id/EmailPatient" />
+
+            <TextView
+                android:text="Téléphone :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TelPatient"
+                app:layout_constraintLeft_toLeftOf="@+id/AdressePatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/AdressePatient" />
+
+            <TextView
+                android:text="Telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TelPatientText"
+                android:layout_marginStart="8dp"
+                app:layout_constraintLeft_toRightOf="@+id/TelPatient"
+                app:layout_constraintTop_toTopOf="@+id/TelPatient" />
+
+            <TextView
+                android:text="Groupe Sanguin :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/GroupeSanguinPatient"
+                app:layout_constraintLeft_toLeftOf="@+id/TaillePatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/TaillePatient" />
+
+            <TextView
+                android:text="Adresse Patient :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/AdressePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/DatePatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/DatePatient" />
+
+            <TextView
+                android:text="Prenom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/FirstNamePatientText"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/FirstNamePatient"
+                app:layout_constraintTop_toTopOf="@+id/FirstNamePatient" />
+
+            <TextView
+                android:text="Email :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/EmailPatient"
+                app:layout_constraintLeft_toLeftOf="@+id/TelPatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/TelPatient" />
+
+            <TextView
+                android:text="Prénom du Patient :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/FirstNamePatient"
+                app:layout_constraintLeft_toLeftOf="@+id/LastNamePatient"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/LastNamePatient" />
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
