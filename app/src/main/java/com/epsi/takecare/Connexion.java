@@ -25,6 +25,7 @@ public class Connexion extends AppCompatActivity {
         btnConnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*TODO : vérification d'authentification*/
                 Intent myIntent = new Intent(v.getContext(), ListePatient.class);
                 startActivity(myIntent);
             }

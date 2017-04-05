@@ -2,12 +2,15 @@ package com.epsi.takecare;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,11 +28,23 @@ public class ListePatient extends ActionBarActivity {
             "Mathieu", "Noemie", "Olivia", "Philippe", "Quentin", "Romain",
             "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier", "Yann", "Zoé"
     };
+    private Button btnMenu;
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_patients);
+
+        btnMenu = (Button) findViewById(R.id.buttonMenu);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuIntent = new Intent(view.getContext(), MenuActivity.class);
+                startActivity(menuIntent);
+            }
+        });
+
         mListView = (ListView) findViewById(R.id.PatientList);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -38,6 +53,9 @@ public class ListePatient extends ActionBarActivity {
                 startActivity(myIntent);
             }
         });
+
+
+
         //afficherListeNoms();
         afficherListePatients();
     }
@@ -58,6 +76,7 @@ public class ListePatient extends ActionBarActivity {
         return patients;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private void afficherListePatients() {
         List<Patient> patients = genererPatients();
 
