@@ -11,7 +11,7 @@
         android:text="@string/title_connexion"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/buttonConnexion"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="16dp"
