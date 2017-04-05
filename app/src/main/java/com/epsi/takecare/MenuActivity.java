@@ -25,22 +25,18 @@ public class MenuActivity extends Activity {
         btnProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent profilIntent = new Intent(view.getContext(), MyAccount.class);
-                startActivity(profilIntent);
+                Intent accountIntent = new Intent(view.getContext(), MyAccount.class);
+                startActivity(accountIntent);
             }
         });
 
         btnDeconnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickDeconexion(view);
+                Intent DecoIntent = new Intent(view.getContext(), Connexion.class);
+                startActivity(DecoIntent);
             }
         });
     }
 
-
-    private void onClickDeconexion(View v){
-        Intent DecoIntent = new Intent(v.getContext(), Connexion.class);
-        startActivity(DecoIntent);
-    }
 }

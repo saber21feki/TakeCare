@@ -16,6 +16,9 @@
     <string name="Tel_compte">Téléphone : </string>
     <string name="Mail_compte">Mail : </string>
     <string name="Edit_Password_compte">Modifier votre mot de passe </string>
+    <string name="BtnEditAccount">Modifier</string>
+    <string name="BtnValidEditAccount">Valider</string>
+    <string name="BtnCancelEditAccount">Annuler</string>
     <!-- End Layout my_account -->
 
     <!-- Layout list_patient -->
