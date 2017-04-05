@@ -54,9 +54,9 @@ public class ListePatient extends ActionBarActivity {
 
     private List<Patient> genererPatients(){
         patients = new ArrayList<Patient>();
-        patients.add(new Patient(1,"Roehrig", "Yann", "02/04/1990"));
-        patients.add(new Patient("Benezech", "Eugénie", "13/05/1990"));
-        patients.add(new Patient("Feki", "Saber", "21/05/1990"));
+        patients.add(new Patient(1,"Mathieu", "Chedid", "02/04/1990"));
+        patients.add(new Patient("Soprano", "Chanteur", "13/05/1990"));
+        patients.add(new Patient("Lolipop", "Designer", "21/05/1990"));
         return patients;
     }
 
