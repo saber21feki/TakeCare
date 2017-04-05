@@ -72,7 +72,9 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.61" />
+        app:layout_constraintHorizontal_bias="0.61"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -85,7 +87,9 @@
         app:layout_constraintRight_toRightOf="@+id/etNomAccount"
         app:layout_constraintLeft_toLeftOf="@+id/etNomAccount"
         app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -98,7 +102,9 @@
         app:layout_constraintRight_toRightOf="@+id/etPrenomAccount"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintTop_toBottomOf="@+id/etPrenomAccount"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -110,7 +116,9 @@
         app:layout_constraintRight_toRightOf="@+id/etTelAcount"
         app:layout_constraintLeft_toLeftOf="@+id/etTelAcount"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/etTelAcount" />
+        app:layout_constraintTop_toBottomOf="@+id/etTelAcount"
+        android:backgroundTint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <Button
         android:text="@string/Edit_Password_compte"
