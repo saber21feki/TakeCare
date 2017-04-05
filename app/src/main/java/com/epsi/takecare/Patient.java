@@ -14,15 +14,25 @@ public class Patient {
     private String date_naissance;
     private String adresse_postale_patient;
     private String cp_patient;
-    private String  ville_patient;
+    private String ville_patient;
     private String telephone_patient;
     private String sexe_patient;
     private String numsecu_patient;
     private String groupeSanguin_patient;
     private String mail_patient;
     private String mdp_patient;
+    private float poids_patient;
+    private float taille_patient;
+    private float temperature_patient;
+    private float tension_patient;
+    private float bpm_patient;
+    private float tpsSommeil_patient;
+    private float caloriesDepensees_patient;
+    private float nbPas_patient;
 
-        public Patient(int idPatient, String nomPatient,String prenomPatient, String dateNaissance,String adressePostalePatient, String cpPatient,String  villePatient,String telephonePatient,String sexePatient,String numsecuPatient,String groupeSanguinPatient, String mailPatient, String mdpPatient) {
+
+
+        public Patient(int idPatient, String nomPatient,String prenomPatient, String dateNaissance,String adressePostalePatient, String cpPatient,String  villePatient,String telephonePatient,String sexePatient,String numsecuPatient,String groupeSanguinPatient, String mailPatient, String mdpPatient, float poids, float taille, String groupeSanguin, float temperature, float tension, float bpm, float tpsSommeil, float caloriesDepensees, float nbPas) {
             this.id_patient = idPatient;
             this.nom_patient = nomPatient;
             this.prenom_patient = prenomPatient;
@@ -36,11 +46,83 @@ public class Patient {
             this.groupeSanguin_patient = groupeSanguinPatient;
             this.mail_patient = mailPatient;
             this.mdp_patient = mdpPatient;
+            this.poids_patient = poids;
+            this.taille_patient = taille;
+            this.temperature_patient = temperature;
+            this.tension_patient = tension;
+            this.bpm_patient = bpm;
+            this.tpsSommeil_patient = tpsSommeil;
+            this.caloriesDepensees_patient = caloriesDepensees;
+            this.nbPas_patient = nbPas;
 
 
         }
 
-    public Patient(int idPatient, String nomPatient,String prenomPatient, String dateNaissance) {
+    public void setPoids_patient(float poids_patient) {
+        this.poids_patient = poids_patient;
+    }
+
+    public void setTaille_patient(float taille_patient) {
+        this.taille_patient = taille_patient;
+    }
+
+    public void setTemperature_patient(float temperature_patient) {
+        this.temperature_patient = temperature_patient;
+    }
+
+    public void setTension_patient(float tension_patient) {
+        this.tension_patient = tension_patient;
+    }
+
+    public void setBpm_patient(float bpm_patient) {
+        this.bpm_patient = bpm_patient;
+    }
+
+    public void setTpsSommeil_patient(float tpsSommeil_patient) {
+        this.tpsSommeil_patient = tpsSommeil_patient;
+    }
+
+    public void setCaloriesDepensees_patient(float caloriesDepensees_patient) {
+        this.caloriesDepensees_patient = caloriesDepensees_patient;
+    }
+
+    public void setNbPas_patient(float nbPas_patient) {
+        this.nbPas_patient = nbPas_patient;
+    }
+
+    public float getPoids_patient() {
+        return poids_patient;
+    }
+
+    public float getTaille_patient() {
+        return taille_patient;
+    }
+
+    public float getTemperature_patient() {
+        return temperature_patient;
+    }
+
+    public float getTension_patient() {
+        return tension_patient;
+    }
+
+    public float getBpm_patient() {
+        return bpm_patient;
+    }
+
+    public float getTpsSommeil_patient() {
+        return tpsSommeil_patient;
+    }
+
+    public float getCaloriesDepensees_patient() {
+        return caloriesDepensees_patient;
+    }
+
+    public float getNbPas_patient() {
+        return nbPas_patient;
+    }
+
+    public Patient(int idPatient, String nomPatient, String prenomPatient, String dateNaissance) {
         this.id_patient = idPatient;
         this.nom_patient = nomPatient;
         this.prenom_patient = prenomPatient;

@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import static com.epsi.takecare.R.id.Identifiant;
+import static com.epsi.takecare.R.id.MotDePasse;
+import static com.epsi.takecare.R.id.buttonConnexion;
+import static com.epsi.takecare.R.layout.connexion;
+
 public class Connexion extends AppCompatActivity {
 
     private Button btnConnexion;
@@ -16,11 +21,11 @@ public class Connexion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.connexion);
+        setContentView(connexion);
 
-        etId = (EditText) findViewById(R.id.Identifiant);
-        etPwd = (EditText) findViewById(R.id.MotDePasse);
-        btnConnexion = (Button) findViewById(R.id.buttonConnexion);
+        etId = (EditText) findViewById(Identifiant);
+        etPwd = (EditText) findViewById(MotDePasse);
+        btnConnexion = (Button) findViewById(buttonConnexion);
 
         btnConnexion.setOnClickListener(new View.OnClickListener() {
             @Override

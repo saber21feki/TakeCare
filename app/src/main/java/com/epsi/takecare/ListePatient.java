@@ -35,11 +35,15 @@ public class ListePatient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_patients);
         mListView = (ListView) findViewById(R.id.PatientList);
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent myIntent = new Intent(view.getContext(), DetailPatient.class);
+                Patient pat = (Patient) mListView.getItemAtPosition(i);
+                myIntent.putExtra("id", String.valueOf(pat.getId_patient()));
                 startActivity(myIntent);
+
             }
         });
 
@@ -59,8 +63,7 @@ public class ListePatient extends AppCompatActivity {
 
     private void afficherListeNoms(){
         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
-        //Contenant une TextView avec comme identifiant "@android:id/text1"
-
+        //Contenant une TextView avec comme identifiant "@android:id/text1
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListePatient.this, android.R.layout.simple_list_item_1, prenoms);
         mListView.setAdapter(adapter);
     }
@@ -68,8 +71,8 @@ public class ListePatient extends AppCompatActivity {
     private List<Patient> genererPatients(){
         patients = new ArrayList<Patient>();
         patients.add(new Patient(1,"Mathieu", "Chedid", "02/04/1990"));
-        patients.add(new Patient("Soprano", "Chanteur", "13/05/1990"));
-        patients.add(new Patient("Lolipop", "Designer", "21/05/1990"));
+        patients.add(new Patient(2, "Soprano", "Chanteur", "13/05/1990"));
+        patients.add(new Patient(3, "Lolipop", "Designer", "21/05/1990"));
         return patients;
     }
 
@@ -82,6 +85,12 @@ public class ListePatient extends AppCompatActivity {
         PatientAdapter adapter = new PatientAdapter(ListePatient.this, patients);
         mListView.setAdapter(adapter);
     }
+
+
+
+
+
+
 
 
 }
