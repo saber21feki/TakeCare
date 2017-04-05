@@ -26,6 +26,8 @@ public class ListePatient extends ActionBarActivity {
             "Sophie", "Tristan", "Ulric", "Vincent", "Willy", "Xavier", "Yann", "Zoé"
     };
 
+    List<Patient> patients;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,7 @@ public class ListePatient extends ActionBarActivity {
     }
 
     private List<Patient> genererPatients(){
-        List<Patient> patients = new ArrayList<Patient>();
+        patients = new ArrayList<Patient>();
         patients.add(new Patient(1,"Roehrig", "Yann", "02/04/1990"));
         patients.add(new Patient("Benezech", "Eugénie", "13/05/1990"));
         patients.add(new Patient("Feki", "Saber", "21/05/1990"));
@@ -59,9 +61,17 @@ public class ListePatient extends ActionBarActivity {
     }
 
     private void afficherListePatients() {
-        List<Patient> patients = genererPatients();
-
+        patients = genererPatients();
+        for(int i = 0 ; i < patients.size(); i++){
+            Patient patient = patients.get(i);
+            System.out.println(patient.getId_patient());
+        }
         PatientAdapter adapter = new PatientAdapter(ListePatient.this, patients);
         mListView.setAdapter(adapter);
     }
+
+    ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListePatient.this,
+            android.R.layout.simple_list_item_1, prenoms);
+
+
 }
