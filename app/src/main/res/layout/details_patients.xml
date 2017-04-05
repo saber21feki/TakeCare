@@ -198,9 +198,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/caloriesDepenseesPatientText"
-                android:layout_marginStart="8dp"
-                app:layout_constraintLeft_toRightOf="@+id/caloriesDepenseesPatient"
-                app:layout_constraintTop_toTopOf="@+id/caloriesDepenseesPatient" />
+                app:layout_constraintTop_toTopOf="@+id/caloriesDepenseesPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/caloriesDepenseesPatient" />
 
             <TextView
                 android:text="Email@CareTech.com"
@@ -225,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/TelPatientText"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintLeft_toRightOf="@+id/TelPatient"
                 app:layout_constraintTop_toTopOf="@+id/TelPatient" />
 
@@ -297,7 +297,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/GroupeSanguinPatientText"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintLeft_toRightOf="@+id/GroupeSanguinPatient"
                 app:layout_constraintTop_toTopOf="@+id/GroupeSanguinPatient" />
 
@@ -306,7 +306,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/temperaturePatientText"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintLeft_toRightOf="@+id/temperaturePatient"
                 app:layout_constraintTop_toTopOf="@+id/temperaturePatient" />
 
@@ -316,23 +316,24 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bpmPatientText"
                 app:layout_constraintLeft_toRightOf="@+id/bpmPatient"
-                app:layout_constraintTop_toTopOf="@+id/bpmPatient" />
+                app:layout_constraintTop_toTopOf="@+id/bpmPatient"
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:text="3000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/nbPasPatientText"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintLeft_toRightOf="@+id/nbPasPatient"
                 app:layout_constraintTop_toTopOf="@+id/nbPasPatient" />
 
             <TextView
                 android:text="9"
-                android:layout_width="74dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tensionPatientText"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintLeft_toRightOf="@+id/tensionPatient"
                 app:layout_constraintTop_toTopOf="@+id/tensionPatient" />
 
