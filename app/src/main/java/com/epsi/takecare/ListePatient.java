@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
  * Created by gael on 05/04/2017.
  */
 
-public class ListePatient extends ActionBarActivity {
+public class ListePatient extends AppCompatActivity {
     ListView mListView;
     String[] prenoms = new String[]{
             "Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
@@ -27,6 +28,7 @@ public class ListePatient extends ActionBarActivity {
     };
 
     List<Patient> patients;
+    private Button btnMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,17 @@ public class ListePatient extends ActionBarActivity {
                 startActivity(myIntent);
             }
         });
+
+
+        btnMenu = (Button) findViewById(R.id.buttonMenu);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuIntent = new Intent(view.getContext(), MenuActivity.class);
+                startActivity(menuIntent);
+            }
+        });
+        
         //afficherListeNoms();
         afficherListePatients();
     }
@@ -69,9 +82,6 @@ public class ListePatient extends ActionBarActivity {
         PatientAdapter adapter = new PatientAdapter(ListePatient.this, patients);
         mListView.setAdapter(adapter);
     }
-
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListePatient.this,
-            android.R.layout.simple_list_item_1, prenoms);
 
 
 }
