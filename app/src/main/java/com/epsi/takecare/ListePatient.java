@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +42,6 @@ public class ListePatient extends AppCompatActivity {
         setContentView(R.layout.list_patients);
         mListView = (ListView) findViewById(R.id.PatientList);
 
-        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
-        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=listPatients&ID_CM="+ Connexion.Constante.Id_CM);
-
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,20 +64,27 @@ public class ListePatient extends AppCompatActivity {
             }
         });
 
-        afficherListePatients();
+        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
+        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=listPatients&ID_CM="+ Connexion.Constante.Id_CM);
+
+
     }
 
 
-    private List<Patient> genererPatients(){
+    private List<Patient> genererPatients(ArrayList<JSONObject> j){
         patients = new ArrayList<Patient>();
-        patients.add(new Patient(1,"Mathieu", "Chedid", "02/04/1990"));
-        patients.add(new Patient(2, "Soprano", "Chanteur", "13/05/1990"));
-        patients.add(new Patient(3, "Lolipop", "Designer", "21/05/1990"));
+        for (JSONObject jsO : j)
+            try {
+                patients.add(new Patient(Integer.parseInt(jsO.get("ID_PATIENT").toString()),jsO.get("NOM_PATIENT").toString(), jsO.get("PRENOM_PATIENT").toString(), jsO.get("DATE_NAISSANCE").toString()));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         return patients;
     }
 
-    private void afficherListePatients() {
-        patients = genererPatients();
+    private void afficherListePatients(ArrayList<JSONObject> j) {
+        patients = genererPatients(j);
         for(int i = 0 ; i < patients.size(); i++){
             Patient patient = patients.get(i);
             System.out.println(patient.getId_patient());
@@ -113,8 +121,21 @@ public class ListePatient extends AppCompatActivity {
             super.onPostExecute(result);
 
 
-            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            try {
+                result = result.replace("}{", "};{");
+                String[] listresult = result.split(";");
+                ArrayList<JSONObject> jsonObjectArrayList = new ArrayList<>();
 
+                for (String s:listresult) {
+                    jsonObjectArrayList.add(new JSONObject(s));
+                }
+
+                afficherListePatients(jsonObjectArrayList);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Aucun patient n'a été trouvé", Toast.LENGTH_LONG).show();
+            }
 
             // Do things like hide the progress bar or change a TextView
         }

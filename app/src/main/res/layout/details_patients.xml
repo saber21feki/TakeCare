@@ -86,8 +86,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/PoidsPatientText"
-                tools:layout_editor_absoluteY="332dp"
-                tools:layout_editor_absoluteX="155dp" />
+                app:layout_constraintTop_toTopOf="@+id/PoidsPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/PoidsPatient" />
 
             <TextView
                 android:text="Homme"
@@ -157,8 +158,9 @@
                 android:layout_width="191dp"
                 android:layout_height="34dp"
                 android:id="@+id/AdressePatientText"
-                tools:layout_editor_absoluteY="174dp"
-                tools:layout_editor_absoluteX="216dp" />
+                app:layout_constraintTop_toTopOf="@+id/AdressePatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/AdressePatient" />
 
             <TextView
                 android:text="Numéro de Sécurité Sociale :"
@@ -205,8 +207,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/EmailPatientText"
-                tools:layout_editor_absoluteY="260dp"
-                tools:layout_editor_absoluteX="149dp" />
+                app:layout_constraintTop_toTopOf="@+id/EmailPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/EmailPatient" />
 
             <TextView
                 android:text="Téléphone :"
@@ -231,8 +234,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tpsSommeilPatientText"
-                tools:layout_editor_absoluteY="517dp"
-                tools:layout_editor_absoluteX="243dp" />
+                app:layout_constraintTop_toTopOf="@+id/tpsSommeilPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/tpsSommeilPatient" />
 
             <TextView
                 android:text="Groupe Sanguin :"
@@ -293,8 +297,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/GroupeSanguinPatientText"
-                tools:layout_editor_absoluteY="393dp"
-                tools:layout_editor_absoluteX="216dp" />
+                app:layout_constraintTop_toTopOf="@+id/GroupeSanguinPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/GroupeSanguinPatient" />
 
             <TextView
                 android:text="38°"
@@ -310,8 +315,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bpmPatientText"
-                tools:layout_editor_absoluteY="485dp"
-                tools:layout_editor_absoluteX="255dp" />
+                app:layout_constraintTop_toTopOf="@+id/bpmPatient"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toRightOf="@+id/bpmPatient" />
 
             <TextView
                 android:text="3000"

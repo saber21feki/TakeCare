@@ -141,10 +141,11 @@ public class MyAccount extends Activity {
             //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             try {
                 JSONObject j = new JSONObject(result);
-                etNom.setText(j.get("NOM_CM").toString());
-                etPrenom.setText(j.get("PRENOM_CM").toString());
-                etTel.setText(j.get("TELEPHONE_CM").toString());
-                etMail.setText(j.get("MAIL_CM").toString());
+                etNom.setText(j.getString("NOM_CM").toString());
+                etPrenom.setText(j.getString("PRENOM_CM").toString());
+                etTel.setText(j.getString("TELEPHONE_CM").toString());
+                etMail.setText(j.getString("MAIL_CM").toString());
+                Connexion.Constante.OldPWD_CM = j.getString("MDP_CM");
 
             } catch (JSONException e) {
                 e.printStackTrace();

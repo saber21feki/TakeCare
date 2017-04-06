@@ -79,7 +79,7 @@ public class Connexion extends AppCompatActivity {
 
 
             if (Integer.parseInt(result)>0){
-                Constante.Id_CM = wsResult;
+                Constante.Id_CM = result;
                 Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
 
                 startActivity(myIntent);
@@ -88,15 +88,12 @@ public class Connexion extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Mauvais login", Toast.LENGTH_LONG).show();
 
             }
-
-
-
-
         }
     }
 
     public static class Constante{
         public static String Id_CM;
+        public static String OldPWD_CM;
     }
 
 }
