@@ -27,11 +27,19 @@ public class Connexion extends AppCompatActivity {
     String wsResult="0";
     Intent myIntent;
 
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connexion);
+
+        if(Constante.CM != null){
+            Constante.CM = new Corps_Medical();
+        }
 
         etId = (EditText) findViewById(Identifiant);
         etPwd = (EditText) findViewById(MotDePasse);
