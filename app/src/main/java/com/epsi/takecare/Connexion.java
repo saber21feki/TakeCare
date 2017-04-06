@@ -24,6 +24,7 @@ public class Connexion extends AppCompatActivity {
     private EditText etPwd;
     private EditText etId;
     String wsResult="0";
+    Intent myIntent;
 
 
     @Override
@@ -44,23 +45,7 @@ public class Connexion extends AppCompatActivity {
                 (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=auth&mail="+etId.getText()+"&mdp="+etPwd.getText());
 
 
-
-
-                //SystemClock.sleep(7000);
-
-
-                if (Integer.parseInt(wsResult)>0){
-                        Constante.Id_CM = wsResult;
-                        Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
-                        Intent myIntent = new Intent(v.getContext(), ListePatient.class);
-                        startActivity(myIntent);
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "Mauvais login", Toast.LENGTH_LONG).show();
-
-                    }
-
-
+                myIntent = new Intent(v.getContext(), ListePatient.class);
 
             }
         });
@@ -93,11 +78,20 @@ public class Connexion extends AppCompatActivity {
             super.onPostExecute(result);
 
 
-            //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
-            wsResult=result;
+            if (Integer.parseInt(result)>0){
+                Constante.Id_CM = wsResult;
+                Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
+
+                startActivity(myIntent);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Mauvais login", Toast.LENGTH_LONG).show();
+
+            }
 
 
-            // Do things like hide the progress bar or change a TextView
+
+
         }
     }
 
