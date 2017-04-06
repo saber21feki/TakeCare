@@ -20,25 +20,6 @@ import java.util.ArrayList;
 
 
 public class DetailPatient extends Activity {
-    public enum Task {
-        GetPatient {
-            public String toString() {
-                return "Patient";
-            }
-        },
-
-        GetMesureAuto {
-            public String toString() {
-                return "MesureAuto";
-            }
-        },
-
-        GetMesureManu {
-            public String toString() {
-                return "MesureManu";
-            }
-        }
-    }
 
     private TextView numSecu;
     private TextView nomPatient;
@@ -89,28 +70,13 @@ public class DetailPatient extends Activity {
         nbPasPatient = (TextView) findViewById(R.id.nbPasPatientText);
 
 
-        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
-        (new MyAsyncTask(Task.GetPatient)).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affPatient&ID_PATIENT="+ id);
-
-
-        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
-        (new MyAsyncTask(Task.GetMesureAuto)).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affMesuresAuto&ID_PATIENT="+ id + "&NBMESURES="+nbMesure);
-
-        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
-        (new MyAsyncTask(Task.GetMesureManu)).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affMesuresManuelle&ID_PATIENT="+ id + "&NBMESURES="+nbMesure);
-
-
+        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affPatientMesures&ID_PATIENT="+ id);
 
     }
 
 
     public class MyAsyncTask extends AsyncTask<String, Integer, String> {
 
-        private Task task;
-
-        public MyAsyncTask(Task t) {
-            task = t;
-        }
 
         // Runs in UI before background thread is called
         @Override
@@ -136,32 +102,26 @@ public class DetailPatient extends Activity {
             super.onPostExecute(result);
 
             try {
-                if(task.toString().equals(Task.GetPatient.toString())){
                     JSONObject j = new JSONObject(result);
-                    numSecu.setText(j.getString("NUMSECU_PATIENT"));
-                    nomPatient.setText(j.getString("NOM_PATIENT"));
-                    prenomPatient.setText(j.getString("PRENOM_PATIENT"));
-                    dateNaissance.setText(j.getString("DATE_NAISSANCE"));
-                    adressePatient.setText(j.getString("ADRESSE_POSTALE_PATIENT"));
-                    telPatient.setText(j.getString("TELEPHONE_PATIENT"));
-                    emailPatient.setText(j.getString("MAIL_PATIENT"));
+                    numSecu.setText(j.getString("NUMSECU_PATIENT").toString());
+                    nomPatient.setText(j.getString("NOM_PATIENT").toString());
+                    prenomPatient.setText(j.getString("PRENOM_PATIENT").toString());
+                    dateNaissance.setText(j.getString("DATE_NAISSANCE").toString());
+                    adressePatient.setText(j.getString("ADRESSE_POSTALE_PATIENT").toString());
+                    telPatient.setText(j.getString("TELEPHONE_PATIENT").toString());
+                    emailPatient.setText(j.getString("MAIL_PATIENT").toString());
                     sexePatient.setText(j.getString("SEXE_PATIENT").equals("0")?"Femme":"Homme");
-                    groupeSanguinPatient.setText(j.getString("GroupeSanguin_Patient"));
-                }
-                if(task.toString().equals(Task.GetMesureManu.toString())){
-                    JSONArray ja = new JSONArray(result);
-                    /*poidsPatient.setText(String.valueOf(j.getString(j.getString(""))));
-                    taillePatient.setText(String.valueOf(j.getString(j.getString(""))));*/
-                }
-                if (task.toString().equals(Task.GetMesureAuto.toString())){
-                        JSONArray ja = new JSONArray(result);
-                        /*temperaturePatient.setText(j.getString(""));
-                        tensionPatient.setText(j.getString(""));
-                        bpmPatient.setText(j.getString(""));
-                        tpsSommeilPatient.setText(j.getString(""));
-                        caloriesDepenseesPatient.setText(j.getString(""));
-                        nbPasPatient.setText(j.getString(""));*/
-                }
+                    groupeSanguinPatient.setText(j.getString("GroupeSanguin_Patient").toString());
+
+                    poidsPatient.setText(j.getString("POIDS").toString()+"Kg" );
+                    taillePatient.setText(j.getString("TAILLE").toString()+"cm");
+
+                    temperaturePatient.setText(j.getString("TEMPERATURE").toString());
+                    tensionPatient.setText(j.getString("TENSION").toString());
+                    bpmPatient.setText(j.getString("BPM").toString());
+                    tpsSommeilPatient.setText(j.getString("TEMPSSOMMEIL").toString());
+                    caloriesDepenseesPatient.setText(j.getString("CALORIESDEPENSEES").toString()+"Kcal");
+                    nbPasPatient.setText(j.getString("NBPAS").toString());
 
             } catch (JSONException e) {
                 e.printStackTrace();

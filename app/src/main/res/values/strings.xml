@@ -7,8 +7,8 @@
     <string name="title_connexion">Connexion</string>
     <string name="identifiant_connexion">Identifiant : </string>
     <string name="motDePasse_connexion">Mot de passe : </string>
-    <string name="Identifiant">lj@email.com</string>
-    <string name="Mdp">abcd4</string>
+    <string name="Identifiant"></string>
+    <string name="Mdp"></string>
     <!-- End Layout activity_main -->
 
     <!-- Layout my_account -->

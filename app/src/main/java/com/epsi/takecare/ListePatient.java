@@ -64,7 +64,6 @@ public class ListePatient extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
         (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=listPatients&ID_CM="+ Connexion.Constante.CM.getId_CM());
 
 

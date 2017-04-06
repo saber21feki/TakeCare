@@ -50,7 +50,6 @@ public class Connexion extends AppCompatActivity {
             public void onClick(View v) {
 
             if(isValidEmail(etId.getText())){
-                Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
                 (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=auth&mail="+etId.getText()+"&mdp="+etPwd.getText());
                 myIntent = new Intent(v.getContext(), ListePatient.class);
             }
@@ -94,7 +93,6 @@ public class Connexion extends AppCompatActivity {
             if (Integer.parseInt(result)>0){
                 Constante.CM.setId_CM(Integer.parseInt(result));
                 Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
-
                 startActivity(myIntent);
             }
             else {
