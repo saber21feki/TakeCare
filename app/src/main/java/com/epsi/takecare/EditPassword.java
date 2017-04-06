@@ -38,14 +38,14 @@ public class EditPassword extends Activity {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                if (etOldPwd.getText().toString().equals(Connexion.Constante.OldPWD_CM)){
+                if (etOldPwd.getText().toString().equals(Connexion.Constante.CM.getMdp_CM())){
                     if (IsNotNullOrEmpty(etNewPwd.getText().toString()) && IsNotNullOrEmpty(etVerifNewPwd.getText().toString())){
                         if(etNewPwd.getText().toString().equals(etVerifNewPwd.getText().toString())){
 
                             Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
-                            (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=editMDPCorpsMedical&ID_CM="+ Connexion.Constante.Id_CM+"&MDP_CM="+etNewPwd.getText());
+                            (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=editMdpCorpsMedical&ID_CM="+ Connexion.Constante.CM.getId_CM()+"&MDP_CM="+etNewPwd.getText());
 
-                            validIntent = new Intent(view.getContext(), MyAccount.class);
+                            validIntent = new Intent(view.getContext(), Connexion.class);
 
                         }else{
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
@@ -122,12 +122,12 @@ public class EditPassword extends Activity {
             super.onPostExecute(result);
 
 
-            if (Integer.parseInt(result)>0){
-                Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
+            if (Integer.parseInt(result)==1){
+                Toast.makeText(getApplicationContext(), "Mot de passe mis à jour", Toast.LENGTH_LONG).show();
                 startActivity(validIntent);
             }
             else {
-                Toast.makeText(getApplicationContext(), "Mauvais login", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Mise à jour du mot de passe annulé", Toast.LENGTH_LONG).show();
 
             }
         }

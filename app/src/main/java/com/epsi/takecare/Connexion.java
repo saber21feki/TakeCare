@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,12 +41,16 @@ public class Connexion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+            if(isValidEmail(etId.getText())){
                 Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
                 (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=auth&mail="+etId.getText()+"&mdp="+etPwd.getText());
-
-
                 myIntent = new Intent(v.getContext(), ListePatient.class);
+            }
+            else{
+                Toast.makeText(getApplicationContext(), "Email invalid", Toast.LENGTH_LONG).show();
+                etId.setText("");
+                etPwd.setText("");
+            }
 
             }
         });
@@ -79,7 +84,7 @@ public class Connexion extends AppCompatActivity {
 
 
             if (Integer.parseInt(result)>0){
-                Constante.Id_CM = result;
+                Constante.CM.setId_CM(Integer.parseInt(result));
                 Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
 
                 startActivity(myIntent);
@@ -92,8 +97,15 @@ public class Connexion extends AppCompatActivity {
     }
 
     public static class Constante{
-        public static String Id_CM;
-        public static String OldPWD_CM;
+        public static Corps_Medical CM = new Corps_Medical();
+    }
+
+    public final static boolean isValidEmail(CharSequence target) {
+        if (TextUtils.isEmpty(target)) {
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
     }
 
 }

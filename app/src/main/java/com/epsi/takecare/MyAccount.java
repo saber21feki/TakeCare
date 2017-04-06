@@ -12,6 +12,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.epsi.takecare.Connexion.Constante.CM;
 import static com.epsi.takecare.R.id.btnEditPwd;
 
 /**
@@ -27,9 +28,6 @@ public class MyAccount extends Activity {
     private Button btnEditPassword;
     private Button btnValider;
     private Button btnAnnuler;
-
-
-    private String jtab = "{\"ID_CM\":\"1\",\"0\":\"1\",\"NOM_CM\":\"Leroy\",\"1\":\"Leroy\",\"PRENOM_CM\":\"Jean\",\"2\":\"Jean\",\"LOCALISATION_CM\":\"Montpellier\",\"3\":\"Montpellier\",\"ADRESSE_CM\":\"Rue Victor Hugo\",\"4\":\"Rue Victor Hugo\",\"CP_CM\":\"34125\",\"5\":\"34125\",\"VILLE_CM\":\"Montpellier\",\"6\":\"Montpellier\",\"TELEPHONE_CM\":\"0423575923\",\"7\":\"0423575923\",\"POSTE_CM\":\"Infirmier\",\"8\":\"Infirmier\",\"NOM_HOPITAL_CM\":\"CHU Montpellier\",\"9\":\"CHU Montpellier\",\"MAIL_CM\":\"lj@email.com\",\"10\":\"lj@email.com\",\"MDP_CM\":\"abcd404235325\",\"11\":\"abcd404235325\"}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +67,21 @@ public class MyAccount extends Activity {
         btnValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!CM.getMail_CM().toString().equals(etMail.getText().toString()) || !CM.getTel_CM().toString().equals(etTel.getText().toString())){
+                    if(Connexion.isValidEmail(etMail.getText())){
+                        if(etTel.getText().length() == 10){
+                            CM.setMail_CM(etMail.getText().toString());
+                            CM.setTel_CM(etTel.getText().toString());
+                            updateCM();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Téléphone invalid", Toast.LENGTH_LONG).show();
+                            etTel.setText(CM.getTel_CM());
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Email invalid", Toast.LENGTH_LONG).show();
+                        etMail.setText(CM.getMail_CM());
+                    }
+                }
                 UpdateAffichage(false);
             }
         });
@@ -77,14 +90,23 @@ public class MyAccount extends Activity {
             @Override
             public void onClick(View view) {
                 UpdateAffichage(false);
+                etTel.setText(CM.getTel_CM());
+                etMail.setText(CM.getMail_CM());
+
             }
         });
 
-        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affCorpsMedical&ID_CM="+ Connexion.Constante.Id_CM);
+        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=affCorpsMedical&ID_CM="+ CM.getId_CM());
 
 
     }
 
+
+
+    private void updateCM(){
+        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=editMailTelCorpsMedical&ID_CM="+ CM.getId_CM()+"&TELEPHONE_CM="+CM.getTel_CM()+"&MAIL_CM="+CM.getMail_CM());
+
+    }
 
     private void UpdateAffichage(boolean edit){
         if (edit){
@@ -105,11 +127,6 @@ public class MyAccount extends Activity {
             btnEditPassword.setVisibility(View.VISIBLE);
         }
     }
-
-
-
-    /*etTel.setText(.getTel_CM());
-    etMail.setText(infirmier.getMail_CM());*/
 
 
     public class MyAsyncTask extends AsyncTask<String, Integer, String> {
@@ -141,11 +158,23 @@ public class MyAccount extends Activity {
             //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             try {
                 JSONObject j = new JSONObject(result);
-                etNom.setText(j.getString("NOM_CM").toString());
-                etPrenom.setText(j.getString("PRENOM_CM").toString());
-                etTel.setText(j.getString("TELEPHONE_CM").toString());
-                etMail.setText(j.getString("MAIL_CM").toString());
-                Connexion.Constante.OldPWD_CM = j.getString("MDP_CM");
+                CM.setMdp_CM(j.getString("MDP_CM"));
+                CM.setNom_Cm(j.getString("NOM_CM"));
+                CM.setPrenom_CM(j.getString("PRENOM_CM"));
+                CM.setLocalisation_CM(j.getString("LOCALISATION_CM"));
+                CM.setAdress_CM(j.getString("ADRESSE_CM"));
+                CM.setCp_CM(j.getString("CP_CM"));
+                CM.setVille_CM(j.getString("VILLE_CM"));
+                CM.setPoste_CM(j.getString("POSTE_CM"));
+                CM.setNomHopital_CM(j.getString("NOM_HOPITAL_CM"));
+                CM.setMail_CM(j.getString("MAIL_CM"));
+                CM.setTel_CM(j.getString("TELEPHONE_CM"));
+
+                etNom.setText(CM.getNom_Cm());
+                etPrenom.setText(CM.getPrenom_CM());
+                etTel.setText(CM.getTel_CM());
+                etMail.setText(CM.getMail_CM());
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
