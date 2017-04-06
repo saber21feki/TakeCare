@@ -22,6 +22,7 @@ public class EditPassword extends Activity {
     private EditText etNewPwd;
     private EditText etOldPwd;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
