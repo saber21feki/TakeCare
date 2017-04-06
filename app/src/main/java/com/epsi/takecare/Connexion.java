@@ -39,17 +39,19 @@ public class Connexion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
 
+                Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
                 (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=auth&mail="+etId.getText()+"&mdp="+etPwd.getText());
 
 
 
 
-                SystemClock.sleep(7000);
+                //SystemClock.sleep(7000);
 
 
                 if (Integer.parseInt(wsResult)>0){
+                        Constante.Id_CM = wsResult;
+                        Toast.makeText(getApplicationContext(), "connexion réussite", Toast.LENGTH_LONG).show();
                         Intent myIntent = new Intent(v.getContext(), ListePatient.class);
                         startActivity(myIntent);
                     }
@@ -91,7 +93,7 @@ public class Connexion extends AppCompatActivity {
             super.onPostExecute(result);
 
 
-            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             wsResult=result;
 
 
@@ -99,6 +101,8 @@ public class Connexion extends AppCompatActivity {
         }
     }
 
-
+    public static class Constante{
+        public static String Id_CM;
+    }
 
 }

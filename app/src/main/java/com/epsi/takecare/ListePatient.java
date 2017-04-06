@@ -2,6 +2,7 @@ package com.epsi.takecare;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,10 @@ public class ListePatient extends AppCompatActivity {
         setContentView(R.layout.list_patients);
         mListView = (ListView) findViewById(R.id.PatientList);
 
+        Toast.makeText(getApplicationContext(), "Chargement...", Toast.LENGTH_LONG).show();
+        (new MyAsyncTask()).execute("http://perso.montpellier.epsi.fr/~gael.renault/takeCare/ws.php?action=listPatients&ID_CM="+ Connexion.Constante.Id_CM);
+
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -56,17 +62,10 @@ public class ListePatient extends AppCompatActivity {
                 startActivity(menuIntent);
             }
         });
-        
-        //afficherListeNoms();
+
         afficherListePatients();
     }
 
-    private void afficherListeNoms(){
-        //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
-        //Contenant une TextView avec comme identifiant "@android:id/text1
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListePatient.this, android.R.layout.simple_list_item_1, prenoms);
-        mListView.setAdapter(adapter);
-    }
 
     private List<Patient> genererPatients(){
         patients = new ArrayList<Patient>();
@@ -88,7 +87,38 @@ public class ListePatient extends AppCompatActivity {
 
 
 
+    public class MyAsyncTask extends AsyncTask<String, Integer, String> {
 
+        // Runs in UI before background thread is called
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        // This is run in a background thread
+        @Override
+        protected String doInBackground(String... params) {
+
+            WS accesWs=new WS();
+
+            return accesWs.getWs(params[0]);
+        }
+
+
+
+        // This runs in UI when background thread finishes
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+
+
+            // Do things like hide the progress bar or change a TextView
+        }
+    }
 
 
 
