@@ -28,6 +28,10 @@ public class MyAccount extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_account);
 
+        //Corps_Medical infirmier = new Corps_Medical();
+
+        //ws.getCorpsMedicalById(Integer.getInteger(id));
+
         etNom = (EditText) findViewById(R.id.etNomAccount);
         etPrenom = (EditText) findViewById(R.id.etPrenomAccount);
         etTel = (EditText) findViewById(R.id.etTelAcount);
@@ -89,4 +93,9 @@ public class MyAccount extends Activity {
             btnEditPassword.setVisibility(View.VISIBLE);
         }
     }
+
+
+
+    /*etTel.setText(.getTel_CM());
+    etMail.setText(infirmier.getMail_CM());*/
 }
