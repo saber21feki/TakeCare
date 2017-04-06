@@ -13,7 +13,12 @@ import android.widget.Toast;
 import java.net.URL;
 
 
-public class Connexion extends AppCompatActivity  {
+import static com.epsi.takecare.R.id.Identifiant;
+import static com.epsi.takecare.R.id.MotDePasse;
+import static com.epsi.takecare.R.id.buttonConnexion;
+import static com.epsi.takecare.R.layout.connexion;
+
+public class Connexion extends AppCompatActivity {
 
     private Button btnConnexion;
     private EditText etPwd;
@@ -26,12 +31,9 @@ public class Connexion extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connexion);
 
-        etId = (EditText) findViewById(R.id.Identifiant);
-        etPwd = (EditText) findViewById(R.id.MotDePasse);
-        btnConnexion = (Button) findViewById(R.id.buttonConnexion);
-        btnConnexion.setText("1122hfdhfd");
-
-
+        etId = (EditText) findViewById(Identifiant);
+        etPwd = (EditText) findViewById(MotDePasse);
+        btnConnexion = (Button) findViewById(buttonConnexion);
 
         btnConnexion.setOnClickListener(new View.OnClickListener() {
             @Override
